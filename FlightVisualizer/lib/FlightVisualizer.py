@@ -1,5 +1,5 @@
 import pygame
-from .constants import colors
+from .constants import COLORS
 import asyncio
 
 class FlightVisualizer:
@@ -15,7 +15,9 @@ class FlightVisualizer:
 		pygame.display.set_caption('Flight Visualizer')
 	
 	def drawUAV(self, uav):
-		pygame.draw.rect(self.canvas, uav.color, uav.rect)
+		position = uav.getPosition()
+		rect = pygame.Rect(position['lat'], position['lon'], 25, 25)
+		pygame.draw.rect(self.canvas, uav.color, rect)
 		
 	async def handleEvent(self):
 		while True:
@@ -29,10 +31,9 @@ class FlightVisualizer:
 
 	async def animate(self):
 		print('Animation STARTED')
-		i = 1
 		while True:
-			self.canvas.fill(colors.BLACK)
-			for uav in self.uavs:
+			self.canvas.fill(COLORS.BLACK)
+			for uav in self.uavs.values():
 				self.drawUAV(uav)
 			pygame.display.update()
 			await asyncio.sleep(0.01)
