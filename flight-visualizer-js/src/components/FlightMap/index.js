@@ -1,25 +1,57 @@
+import 'leaflet/dist/leaflet.css'
+
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import React, { Component } from 'react'
+
+import L from 'leaflet'
+import markerIcon from '../../../node_modules/leaflet/dist/images/marker-icon.png'
+import markerShadow from '../../../node_modules/leaflet/dist/images/marker-shadow.png'
+import { values } from 'ramda'
+
+const DEFAULT_VIEWPORT = {
+  center: [51.505, -0.09],
+  zoom: 13
+}
+
+const myIcon = L.icon({
+  iconUrl: markerIcon,
+  iconSize: [25, 41],
+  iconAnchor: [22, 94],
+  popupAnchor: [-3, -76],
+  shadowUrl: markerShadow,
+  shadowSize: [68, 95],
+  shadowAnchor: [22, 94]
+})
 
 class FlightMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      lat: 51.505,
-      lng: -0.09,
-      zoom: 13
+      draggable: true,
+      marker: {
+        lat: 51.505,
+        lon: -0.09
+      },
+      viewport: DEFAULT_VIEWPORT
     }
   }
 
+  updateMarkerPosition() {}
+
   render() {
-    const position = [this.state.lat, this.state.lng]
     return (
-      <Map className="map" center={position} zoom={this.state.zoom}>
+      <Map className="map" viewport={this.state.viewport}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
+        <Marker
+          draggable={this.state.draggable}
+          icon={myIcon}
+          onDragend={this.updateMarkerPosition}
+          ref={this.refmarker}
+          position={values(this.state.marker)}
+        >
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>

@@ -1,9 +1,9 @@
 import './App.css'
-import 'leaflet/dist/leaflet.css'
 
 import React, { Component } from 'react'
 
 import FlightMap from './components/FlightMap'
+import TestButton from './components/TestButton'
 
 class App extends Component {
   render() {
@@ -11,6 +11,7 @@ class App extends Component {
       <div>
         Flight Visualizer JS
         <FlightMap />
+        <TestButton />
       </div>
     )
   }
