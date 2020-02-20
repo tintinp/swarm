@@ -5,10 +5,10 @@ const { SHOW_ALL } = FILTER
 /*
 {
   filter: SHOW_ALL
-  uavs: [
-    { id: 1, position: { lat:  51.505, lon: -0.09 } }
-    { id: 2, position: { lat:  52.505, lon: -1.09 } }
-  ]
+  uavs: {
+    id: 1, position: { lat:  51.505, lon: -0.09 } }
+    id: 2, position: { lat:  52.505, lon: -1.09 } }
+  }
 }
  */
 

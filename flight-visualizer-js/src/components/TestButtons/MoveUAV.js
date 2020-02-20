@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 
-class TestButton extends Component {
+import PropTypes from 'prop-types'
+
+class MoveUAV extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      position: {
-        lat: 51.505,
-        lon: -0.09
-      }
-    }
   }
 
   handleChangePosition() {
@@ -32,4 +28,8 @@ class TestButton extends Component {
   }
 }
 
-export default TestButton
+MoveUAV.propTypes = {
+  onClick: PropTypes.func.isRequired
+}
+
+export default MoveUAV

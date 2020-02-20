@@ -2,16 +2,16 @@ import './App.css'
 
 import React, { Component } from 'react'
 
-import FlightMap from './components/FlightMap'
-import TestButton from './components/TestButton'
+import AddUAVContainer from './containers/AddUAVContainer'
+import FlightMapContainer from './containers/FlightMapContainer'
 
 class App extends Component {
   render() {
     return (
       <div>
         Flight Visualizer JS
-        <FlightMap />
-        <TestButton />
+        <FlightMapContainer />
+        <AddUAVContainer />
       </div>
     )
   }
