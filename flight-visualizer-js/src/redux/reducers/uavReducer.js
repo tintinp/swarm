@@ -1,4 +1,4 @@
-import { ADD_UAV, CHANGE_POSITION, FILTER, SET_FILTER } from '../actions/uavActions'
+import { ADD_UAV, CHANGE_UAV_POSITION, FILTER, SET_FILTER } from '../actions/uavActions'
 const { SHOW_ALL } = FILTER
 
 // UI states
@@ -6,8 +6,8 @@ const { SHOW_ALL } = FILTER
 {
   filter: SHOW_ALL
   uavs: {
-    id: 1, position: { lat:  51.505, lon: -0.09 } }
-    id: 2, position: { lat:  52.505, lon: -1.09 } }
+    1: position: { lat:  51.505, lon: -0.09 } }
+    2: position: { lat:  52.505, lon: -1.09 } }
   }
 }
  */
@@ -25,7 +25,7 @@ const uavs = (uavs = {}, action) => {
   switch (action.type) {
     case ADD_UAV:
       return { ...uavs, [action.payload.id]: { position: action.payload.position } }
-    case CHANGE_POSITION:
+    case CHANGE_UAV_POSITION:
       return { ...uavs, [action.payload.id]: { position: action.payload.position } }
     default:
       return uavs

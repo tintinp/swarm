@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 import AddUAVContainer from './containers/AddUAVContainer'
 import FlightMapContainer from './containers/FlightMapContainer'
+import MoveUAVContainer from './containers/MoveUAVContainer'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         Flight Visualizer JS
         <FlightMapContainer />
         <AddUAVContainer />
+        <MoveUAVContainer />
       </div>
     )
   }

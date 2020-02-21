@@ -1,5 +1,5 @@
 export const ADD_UAV = 'ADD_UAV'
-export const CHANGE_POSITION = 'CHANGE_POSITION'
+export const CHANGE_UAV_POSITION = 'CHANGE_UAV_POSITION'
 export const SET_FILTER = 'SET_FILTER'
 
 export const FILTER = {
@@ -17,9 +17,9 @@ export const addUAV = (data) => {
   }
 }
 
-export const changePosition = (data) => {
+export const changeUAVPosition = (data) => {
   return {
-    type: CHANGE_POSITION,
+    type: CHANGE_UAV_POSITION,
     payload: {
       id: data.id,
       position: data.position
