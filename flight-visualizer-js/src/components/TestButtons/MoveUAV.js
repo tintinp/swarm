@@ -14,8 +14,8 @@ class MoveUAV extends Component {
   incrementPosition() {
     const uav = this.props.uavs[this.state.selectedID]
     return {
-      lat: uav.position.lat + 0.01,
-      lon: uav.position.lon + 0.01
+      lat: uav.position.lat + 0.001,
+      lon: uav.position.lon + 0.001
     }
   }
 

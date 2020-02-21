@@ -1,28 +1,16 @@
 import 'leaflet/dist/leaflet.css'
 
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import { Map, TileLayer } from 'react-leaflet'
 import React, { Component } from 'react'
-import { keys, map, values } from 'ramda'
+import { keys, map } from 'ramda'
 
-import L from 'leaflet'
 import PropTypes from 'prop-types'
-import markerIcon from '../../../node_modules/leaflet/dist/images/marker-icon.png'
-import markerShadow from '../../../node_modules/leaflet/dist/images/marker-shadow.png'
+import UAVSContainer from '../../containers/UAVSContainer'
 
 const DEFAULT_VIEWPORT = {
   center: [51.505, -0.09],
   zoom: 13
 }
-
-const myIcon = L.icon({
-  iconUrl: markerIcon,
-  iconSize: [25, 41],
-  iconAnchor: [22, 94],
-  popupAnchor: [-3, -76],
-  shadowUrl: markerShadow,
-  shadowSize: [68, 95],
-  shadowAnchor: [22, 94]
-})
 
 class FlightMap extends Component {
   constructor(props) {
@@ -46,17 +34,7 @@ class FlightMap extends Component {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker
-            draggable={this.state.draggable}
-            icon={myIcon}
-            onDragend={this.updateMarkerPosition}
-            ref={this.refmarker}
-            position={values(this.state.marker)}
-          >
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          <UAVSContainer />
         </Map>
         <ul>
           ID: Position
