@@ -16,11 +16,6 @@ class FlightMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      draggable: true,
-      marker: {
-        lat: 51.505,
-        lon: -0.09
-      },
       viewport: DEFAULT_VIEWPORT
     }
   }
