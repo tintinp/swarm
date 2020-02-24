@@ -1,7 +1,7 @@
-import { SocketStream, UDPStream } from './streamss'
+import { SocketStream, UDPStream } from './streams'
 
 import Joi from '@hapi/joi'
-import { ServerManager } from './managerss'
+import { ServerManager } from './managers'
 
 const FLIGHT_VISUALIZER_SERVER_SCHEMA = Joi.object({
   udpBroadcast: {
