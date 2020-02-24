@@ -1,19 +1,19 @@
-describe('SocketStream', () => {
+describe('ServerManager', () => {
   beforeEach(() => {
     jest.resetModules()
     jest.clearAllMocks()
   })
 
   test('Should instantiate without error', async () => {
-    const SocketStream = require('../SocketStream').default
+    const ServerManager = require('../ServerManager').default
 
     const context = { debug: true, logger: console }
-    const result = new SocketStream(
+    const serverManager = new ServerManager(
       {
-        httpServer: {}
+        port: 5000
       },
       context
     )
-    expect(result).toBeInstanceOf(SocketStream)
+    expect(serverManager).toBeInstanceOf(ServerManager)
   })
 })

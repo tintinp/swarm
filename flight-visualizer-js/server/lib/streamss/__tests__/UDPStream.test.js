@@ -8,7 +8,7 @@ describe('UDPStream', () => {
     const UDPStream = require('../UDPStream').default
 
     const context = { debug: true, logger: console }
-    const result = new UDPStream(
+    const udpStream = new UDPStream(
       {
         bind: {
           mode: 'broadcast'
@@ -22,7 +22,7 @@ describe('UDPStream', () => {
       },
       context
     )
-    expect(result).toBeInstanceOf(UDPStream)
+    expect(udpStream).toBeInstanceOf(UDPStream)
   })
 
   test('Should start UDP server without error', async () => {
