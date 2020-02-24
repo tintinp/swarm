@@ -3,6 +3,6 @@ set -e
 
 echo "cleaning..."
 
-rimraf dist-server
+rimraf dist
 
 echo "clean complete!"
