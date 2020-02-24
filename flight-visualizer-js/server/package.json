@@ -6,12 +6,10 @@
     "build": "bash ./npm-scripts/build.sh",
     "clean": "bash ./npm-scripts/clean.sh",
     "cleanse": "bash ./npm-scripts/cleanse.sh",
-    "dev": "NODE_ENV=DEVELOPMENT npm-run-all build server",
-    "prod": "NODE_ENV=PRODUCTION npm-run-all build server",
-    "server": "node ./dist/Server.js",
+    "dev": "NODE_ENV=DEVELOPMENT bash ./npm-scripts/server.sh",
+    "prod": "NODE_ENV=PRODUCTION bash ./npm-scripts/server.sh",
     "start": "npm run prod",
-    "test": "bash ./npm-scripts/test.sh",
-    "watch:dev": "nodemon"
+    "test": "bash ./npm-scripts/test.sh"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.0",
@@ -23,11 +21,11 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "^1.9.1",
-    "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5",
     "pg": "^7.18.2",
     "pino": "^5.16.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "yargs": "^15.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
