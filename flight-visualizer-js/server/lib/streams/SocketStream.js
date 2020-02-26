@@ -6,6 +6,14 @@ const SOCKET_STREAM_SCHEMA = Joi.object({
   httpServer: Joi.object().required()
 })
 
+const UAV_SCHEMA = Joi.object({
+  id: Joi.string().required(),
+  position: {
+    lat: Joi.number().required(),
+    lon: Joi.number().required()
+  }
+})
+
 class SocketStream extends Duplex {
   constructor(options, context) {
     super(options)
@@ -64,8 +72,18 @@ class SocketStream extends Duplex {
     callback()
   }
 
-  parseMessage(message) {
-    console.log('UDP message received:', message)
+  parseMessage(raw) {
+    try {
+      const message = JSON.parse(raw)
+      const { error, value } = UAV_SCHEMA.validate(message)
+      if (error) {
+        throw error
+      }
+      this.io.emit('updateUAV', value)
+    } catch (err) {
+      this.logger.error('Might be malformed JSON from UDP')
+      this.logger.error(err.message)
+    }
   }
 
   async start() {}

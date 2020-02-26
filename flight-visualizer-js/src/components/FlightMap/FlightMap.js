@@ -2,10 +2,10 @@ import 'leaflet/dist/leaflet.css'
 
 import { Map, TileLayer } from 'react-leaflet'
 import React, { Component } from 'react'
-import { keys, map } from 'ramda'
 
 import PropTypes from 'prop-types'
 import UAVSContainer from '../../containers/UAVSContainer'
+import UAVTable from './UAVTable'
 
 const DEFAULT_VIEWPORT = {
   center: [51.505, -0.09],
@@ -22,6 +22,7 @@ class FlightMap extends Component {
 
   render() {
     const { uavs } = this.props
+
     return (
       <div>
         <Map className="map" viewport={this.state.viewport}>
@@ -31,16 +32,7 @@ class FlightMap extends Component {
           />
           <UAVSContainer />
         </Map>
-        <ul>
-          ID: Position
-          {map((key) => {
-            return (
-              <div key={key}>
-                {key}: {uavs[key].position.lat}, {uavs[key].position.lat}
-              </div>
-            )
-          }, keys(uavs))}
-        </ul>
+        <UAVTable uavs={uavs} />
       </div>
     )
   }

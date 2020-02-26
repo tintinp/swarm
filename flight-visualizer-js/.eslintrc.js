@@ -7,7 +7,7 @@ module.exports = {
     node: true
   },
   extends: ['eslint:recommended', 'prettier', 'plugin:react/recommended'],
-  plugins: ['import', 'prettier'],
+  plugins: ['import', 'prettier', 'react-hooks'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
@@ -31,6 +31,8 @@ module.exports = {
     'import/no-self-import': 'error',
     'import/no-unresolved': 'error',
     'import/no-useless-path-segments': 'error',
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   }
 }

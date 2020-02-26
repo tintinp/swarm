@@ -17,7 +17,9 @@ const UDP_STREAM_SCHEMA = Joi.object({
       loopback: Joi.boolean(),
       ttl: Joi.number().integer()
     },
-    port: Joi.number().integer()
+    port: Joi.number()
+      .integer()
+      .default('50000')
   },
   cast: {
     address: Joi.string().required(),
@@ -39,14 +41,14 @@ class UDPStream extends Duplex {
   constructor(options, context) {
     super(options)
 
-    const { error } = UDP_STREAM_SCHEMA.validate(options)
+    const { error, value } = UDP_STREAM_SCHEMA.validate(options)
 
     if (error) {
       context.logger.error(error.message)
       throw error
     }
 
-    Object.assign(this, options)
+    Object.assign(this, value)
     this.socket = undefined
     this.messages = []
     this.reading = false
