@@ -1,7 +1,8 @@
-import { createStore } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
+
+import { socketMiddleware } from './middlewares'
 import { uavReducer } from './reducers'
 
-export default createStore(
-  uavReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+export default createStore(uavReducer, composeEnhancer(applyMiddleware(socketMiddleware)))

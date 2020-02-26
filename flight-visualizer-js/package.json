@@ -12,13 +12,15 @@
   "author": "Tin-tin",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.9.4",
     "leaflet": "^1.6.0",
     "ramda": "^0.27.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-leaflet": "^2.6.1",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -33,6 +35,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
@@ -49,5 +52,6 @@
     "hooks": {
       "pre-commit": "npm run lint:staged"
     }
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
